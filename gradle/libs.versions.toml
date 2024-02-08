@@ -1,0 +1,161 @@
+[versions]
+
+# Plugins
+gradle = "8.2.2"
+kotlin = "1.9.10"
+ksp = "1.9.10-1.0.13"
+hilt = "2.48"
+
+# Android x
+core-ktx = "1.12.0"
+lifecycle-runtime-ktx = "2.7.0"
+activity-compose = "1.8.2"
+
+# Compose
+compose-bom = "2023.08.00"
+lifecycle-viewmodel-compose = "2.7.0"
+navigation-compose = "2.7.6"
+material-icons-extended = "1.6.0"
+lifecycle-runtime-compose = "2.7.0"
+
+# Hilt
+hilt-navigation-compose = "1.1.0"
+hilt-android = "2.48"
+hilt-android-compiler = "2.48"
+hilt-work = "1.1.0"
+hilt-compiler = "1.1.0"
+work-runtime-ktx = "2.9.0"
+
+# Retrofit
+retrofit = "2.9.0"
+converter-gson = "2.9.0"
+logging-interceptor = "4.9.0"
+
+# Coil
+coil-compose = "2.5.0"
+
+# Room
+room-runtime = "2.6.1"
+room-compiler = "2.6.1"
+room-ktx = "2.6.1"
+
+# Test
+androidx-junit = "1.1.5"
+espresso-core = "3.5.1"
+junit = "4.13.2"
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "gradle" }
+android-library = { id = "com.android.library", version.ref = "gradle" }
+android-dynamic-feature = { id = "com.android.dynamic-feature", version.ref = "gradle" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+
+[libraries]
+# Android x
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+
+# Compose
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+ui = { module = "androidx.compose.ui:ui" }
+ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
+ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+material3 = { module = "androidx.compose.material3:material3" }
+lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-viewmodel-compose" }
+navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
+material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "material-icons-extended" }
+lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle-runtime-compose" }
+
+# Hilt
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-android-compiler" }
+hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hilt-work" }
+hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hilt-compiler" }
+work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work-runtime-ktx" }
+
+# Retrofit
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converter-gson" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "logging-interceptor" }
+
+# Coil
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
+
+# Room
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-runtime" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-compiler" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room-ktx" }
+
+
+# Test
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }
+junit = { module = "junit:junit", version.ref = "junit" }
+ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4"}
+
+# Debug
+ui-tooling = {module = "androidx.compose.ui:ui-tooling"}
+ui-test-manifest = {module = "androidx.compose.ui:ui-test-manifest"}
+
+[bundles]
+android-x = [
+    "androidx-core-ktx",
+    "androidx-lifecycle-runtime-ktx",
+    "androidx-activity-compose"
+]
+
+compose = [
+    "ui",
+    "ui-graphics",
+    "ui-tooling-preview",
+    "material3",
+    "lifecycle-viewmodel-compose",
+    "navigation-compose",
+    "material-icons-extended",
+    "lifecycle-runtime-compose"
+]
+
+hilt = [
+    "hilt-android",
+    "hilt-work",
+    "work-runtime-ktx",
+    "hilt-navigation-compose"
+]
+
+ksp-hilt = [
+    "hilt-android-compiler",
+    "hilt-compiler"
+]
+
+retrofit = [
+    "retrofit",
+    "converter-gson",
+    "logging-interceptor"
+]
+
+coil = [
+    "coil-compose"
+]
+
+room = [
+    "room-runtime",
+    "room-ktx"
+]
+ksp-room = [
+    "room-compiler"
+]
+
+test = [
+    "androidx-junit",
+    "androidx-espresso-core",
+    "ui-test-junit4"
+]
+
+debug = [
+    "ui-tooling",
+    "ui-test-manifest"
+]
