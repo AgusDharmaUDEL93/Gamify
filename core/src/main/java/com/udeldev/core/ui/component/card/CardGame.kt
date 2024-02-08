@@ -1,6 +1,5 @@
 package com.udeldev.core.ui.component.card
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,11 +17,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.udeldev.core.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -39,17 +35,12 @@ fun CardGame(
         modifier = modifier,
         onClick = onClick
     ) {
-        if (image.isNullOrEmpty()) {
-            Image(
-                painter = painterResource(id = R.drawable.placeholder),
-                contentDescription = "$id - $title",
-            )
-        } else {
-            AsyncImage(
-                model = image,
-                contentDescription = "$id - $title",
-            )
-        }
+
+        AsyncImage(
+            model = image,
+            contentDescription = "$id - $title",
+        )
+
         Column(
             modifier = Modifier.padding(20.dp)
         ) {
