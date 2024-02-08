@@ -47,11 +47,3 @@ fun TopNavigation(
         }
     )
 }
-
-@Preview(showBackground = true)
-@Composable
-fun TopNavigationPreview() {
-    TopNavigation(
-        onClickFavorite = {}
-    )
-}

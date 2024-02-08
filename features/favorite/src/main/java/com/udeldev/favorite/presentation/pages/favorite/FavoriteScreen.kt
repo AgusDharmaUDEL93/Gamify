@@ -11,16 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.udeldev.core.common.NavigationRoutes
 import com.udeldev.core.ui.component.card.CardGame
 import com.udeldev.core.ui.pages.placeholder.EmptyPlaceholderScreen
 
 @Composable
 fun FavoriteScreen(
-    navController: NavController,
     state: FavoriteState,
-    onEvent: (FavoriteEvent) -> Unit,
 ) {
 
     val context = LocalContext.current

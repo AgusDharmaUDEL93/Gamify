@@ -10,5 +10,5 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 interface GameFavoriteModuleDependencies {
 
-    fun gameFavoriteUseCase() : FavoriteUseCases
+    fun gameFavoriteUseCase(): FavoriteUseCases
 }

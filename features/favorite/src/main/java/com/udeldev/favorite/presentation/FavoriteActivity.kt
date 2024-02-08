@@ -68,12 +68,9 @@ class FavoriteActivity : ComponentActivity() {
                             modifier = Modifier
                                 .padding(innerPadding),
                         ) {
-
                             val state by viewModel.state.collectAsState()
                             FavoriteScreen(
-                                navController = navController,
                                 state = state,
-                                onEvent = viewModel::onEvent,
                             )
                         }
                     }

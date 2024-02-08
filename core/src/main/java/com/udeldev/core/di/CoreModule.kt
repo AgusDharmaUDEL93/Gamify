@@ -13,6 +13,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
+import okhttp3.CertificatePinner
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -23,6 +26,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object CoreModule {
+
+    private val passphrase: ByteArray = SQLiteDatabase.getBytes("udel".toCharArray())
+    private val factory = SupportFactory(passphrase)
 
     @Provides
     @Singleton
@@ -36,10 +42,17 @@ object CoreModule {
                 .build()
             chain.proceed(requestHeader)
         }
+        val hostname = "api.rawg.io"
+        val certificatePinner = CertificatePinner.Builder()
+            .add(hostname, "sha256/KgyOSpsq6+nlxUBonR1zCRB7+Fg5tEsMluevNjtOGcY=")
+            .add(hostname, "sha256/81Wf12bcLlFHQAfJluxnzZ6Frg+oJ9PWY/Wrwur8viQ=")
+            .add(hostname, "sha256/hxqRlPTu1bMS/0DITB1SSu0vd4u/8l8TjPgfaAp63Gc==")
+            .build()
 
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .addInterceptor(authInterceptor)
+            .certificatePinner(certificatePinner)
             .build()
 
         return Retrofit.Builder()
@@ -52,12 +65,12 @@ object CoreModule {
 
     @Provides
     @Singleton
-    fun providesFavoriteDatabase(app : Application) : FavoriteDatabase{
+    fun providesFavoriteDatabase(app: Application): FavoriteDatabase {
         return Room.databaseBuilder(
             app,
             FavoriteDatabase::class.java,
             FavoriteDatabase.DATABASE_NAME
-        ).build()
+        ).fallbackToDestructiveMigration().openHelperFactory(factory).build()
     }
 
     @Provides

@@ -44,6 +44,13 @@ androidx-junit = "1.1.5"
 espresso-core = "3.5.1"
 junit = "4.13.2"
 
+# Performance
+leak-canary = "2.10"
+
+# SQL LIte
+sqlcipher = "4.4.0"
+sqlite-ktx = "2.1.0"
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }
 android-library = { id = "com.android.library", version.ref = "gradle" }
@@ -90,6 +97,12 @@ room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-runt
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-compiler" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room-ktx" }
 
+# Performance
+leak-canary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leak-canary"}
+
+# SQLite
+android-database-sqlcipher = { module = "net.zetetic:android-database-sqlcipher", version.ref = "sqlcipher" }
+sqlite-ktx = { module = "androidx.sqlite:sqlite-ktx", version.ref = "sqlite-ktx" }
 
 # Test
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
@@ -149,6 +162,11 @@ ksp-room = [
     "room-compiler"
 ]
 
+sqlcipher = [
+    "sqlite-ktx",
+    "android-database-sqlcipher"
+]
+
 test = [
     "androidx-junit",
     "androidx-espresso-core",
@@ -157,5 +175,6 @@ test = [
 
 debug = [
     "ui-tooling",
-    "ui-test-manifest"
+    "ui-test-manifest",
+    "leak-canary"
 ]

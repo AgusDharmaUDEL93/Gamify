@@ -19,8 +19,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -59,6 +66,9 @@ dependencies {
     // Dagger-hilt
     implementation(libs.bundles.hilt)
     ksp(libs.bundles.ksp.hilt)
+
+    // Encription
+    implementation(libs.bundles.sqlcipher)
 
     // Main Package
     implementation(libs.bundles.android.x)

@@ -23,10 +23,6 @@ class FavoriteViewModel @Inject constructor(
         getFavorite()
     }
 
-    fun onEvent (event: FavoriteEvent) {
-
-    }
-
     private fun getFavorite() {
         getFavoriteJob?.cancel()
         getFavoriteJob = favoriteUseCases.getAllFavoriteUseCase()

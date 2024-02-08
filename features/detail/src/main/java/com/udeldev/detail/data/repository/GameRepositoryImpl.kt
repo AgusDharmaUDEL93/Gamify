@@ -1,7 +1,6 @@
 package com.udeldev.detail.data.repository
 
 import com.udeldev.core.network.rawg_api.dto.game.GameDto
-import com.udeldev.core.network.rawg_api.dto.games.GamesDto
 import com.udeldev.detail.data.source.GameDataProvider
 import com.udeldev.detail.domain.repository.GameRepository
 import javax.inject.Inject

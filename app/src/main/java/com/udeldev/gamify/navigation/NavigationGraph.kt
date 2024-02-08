@@ -61,7 +61,6 @@ fun NavigationGraph(
             val viewModel = hiltViewModel<DetailViewModel>()
             val state by viewModel.state.collectAsState()
             DetailScreen(
-                navController = navController,
                 state = state,
                 onEvent = viewModel::onEvent
             )

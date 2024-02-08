@@ -82,16 +82,3 @@ fun CardGame(
         }
     }
 }
-
-@Preview
-@Composable
-fun CardGamePreview() {
-    CardGame(
-        id = 1,
-        date = "2013-09-17",
-        title = "Counter-Strike: Global Offensive",
-        rating = 4.47,
-        image = "",
-        onClick = {}
-    )
-}

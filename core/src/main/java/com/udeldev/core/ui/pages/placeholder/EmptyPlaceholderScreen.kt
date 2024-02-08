@@ -25,9 +25,3 @@ fun EmptyPlaceholderScreen(
         )
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun EmptyPlaceholderScreenPreview() {
-    EmptyPlaceholderScreen(title = "Game")
-}

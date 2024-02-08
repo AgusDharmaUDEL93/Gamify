@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val gameUseCases: GameUseCases,
+    gameUseCases: GameUseCases,
     private val favoriteUseCases: FavoriteUseCases,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
