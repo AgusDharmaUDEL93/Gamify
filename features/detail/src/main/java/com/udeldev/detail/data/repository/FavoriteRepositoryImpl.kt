@@ -2,6 +2,8 @@ package com.udeldev.detail.data.repository
 
 import com.udeldev.core.local.favorite.FavoriteDao
 import com.udeldev.core.model.Game
+import com.udeldev.core.model.toGame
+import com.udeldev.core.model.toGameFav
 import com.udeldev.detail.domain.repository.FavoriteRepository
 import javax.inject.Inject
 
@@ -23,7 +25,7 @@ class FavoriteRepositoryImpl @Inject constructor(
                 image = image,
                 released = released,
                 rating = rating
-            )
+            ).toGameFav()
         )
     }
 
@@ -41,11 +43,11 @@ class FavoriteRepositoryImpl @Inject constructor(
                 image = image,
                 released = released,
                 rating = rating
-            )
+            ).toGameFav()
         )
     }
 
     override suspend fun getFavoriteById(id: Int): Game? {
-        return favoriteDao.getFavoriteById(id)
+        return favoriteDao.getFavoriteById(id)?.toGame()
     }
 }

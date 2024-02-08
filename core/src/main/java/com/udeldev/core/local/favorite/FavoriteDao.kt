@@ -5,21 +5,21 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.udeldev.core.model.Game
+import com.udeldev.core.model.GameFav
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FavoriteDao {
 
-    @Query("SELECT * FROM game")
-    fun getAllFavorite(): Flow<List<Game>>
+    @Query("SELECT * FROM gamefav")
+    fun getAllFavorite(): Flow<List<GameFav>>
 
-    @Query("SELECT * FROM game WHERE id= :id")
-    suspend fun getFavoriteById(id: Int): Game?
+    @Query("SELECT * FROM gamefav WHERE id= :id")
+    suspend fun getFavoriteById(id: Int): GameFav?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertFavorite(favorite: Game)
+    suspend fun insertFavorite(favorite: GameFav)
 
     @Delete
-    suspend fun deleteFavorite(favorite: Game)
+    suspend fun deleteFavorite(favorite: GameFav)
 }

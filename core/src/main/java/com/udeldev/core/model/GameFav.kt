@@ -3,7 +3,9 @@ package com.udeldev.core.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-data class Game(
+@Entity
+data class GameFav(
+    @PrimaryKey
     val id: Int,
     val image: String,
     val released: String,
@@ -11,8 +13,8 @@ data class Game(
     val rating: Double,
 )
 
-fun Game.toGameFav(): GameFav {
-    return GameFav(
+fun GameFav.toGame(): Game {
+    return Game(
         id = id,
         image = image,
         released = released,
